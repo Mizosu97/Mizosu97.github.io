@@ -1,0 +1,42 @@
+* {
+    box-sizing: border-box;
+    margin: 0 auto;
+}
+
+aside {
+    float: left;
+    width: 20%;
+    height: 700px;
+    padding: 10px;
+}
+
+body {
+    overflow-x: hidden;
+    color: #f5c2e7;
+    background-color: #11111b;
+    font: 16px monospace
+}
+
+img {
+    border-radius:5px;
+    width: 100%
+}
+
+a {
+    text-decoration: none; 
+    color: #b4befe;
+}
+
+h1,.horizontal-divider {
+    border-bottom: 1pt solid #313244;
+}
+
+article {
+    float: left;
+    padding: 20px;
+    width: 80%;
+    background-color: #11111b;
+    height: 700px;
+    color: #f5c2e7;
+    word-break: keep-all;
+}
