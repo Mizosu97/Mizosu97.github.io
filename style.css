@@ -39,4 +39,16 @@ article {
     height: 700px;
     color: #f5c2e7;
     word-break: keep-all;
+    overflow: scroll;
+}
+
+.software {
+	float: left;
+	padding: 30px;
+	width: 80%;
+	height: 100px;
+	background-color: #1e1e2e;
+	color: #f5c2e7;
+	word-break: keep-all;
+	overflow: scroll;
 }
