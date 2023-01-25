@@ -49,6 +49,7 @@ article {
 	background-color: #1e1e2e;
 	color: #f5c2e7;
 	word-break: keep-all;
+	border-radius: 5px;
 }
 
 .sdesc {
