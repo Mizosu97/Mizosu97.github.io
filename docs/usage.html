@@ -70,33 +70,25 @@
 	<h3>Managing system services</h3>
 	<p><strong>mizOS was originally built for the runit init system.</strong></p>
 	<p><strong>Commands with a ¥ next to the name are SystemD compatible.</p>
-	<br>
-	<p><code>miz sv link &lt;service&gt;</code> - Add a service. Lets it start up at boot.</p>
-	<br>
-	<p><code>miz sv unlink &lt;service&gt;</code> - Removes the <code>miz service link</code> effect. Removes the service.</p>
-	<br>
-	<p>¥ £ <code>miz sv disable &lt;service&gt;</code> - Prevents a service from starting at boot.</p>
-	<br>
-	<p>¥ £ <code>miz sv enable &lt;service&gt;</code> - Negates the <code>miz service disable</code> effect.</p>
-	<br>
-	<p>¥ £ <code>miz sv start &lt;service&gt;</code> - Starts a service.</p>
-	<br>
-	<p>¥ £ <code>miz sv stop &lt;service&gt;</code> - Stops a service.</p>
-	<br>
-	<p>¥ £ <code>miz sv restart &lt;service&gt;</code> - Restarts a service.</p>
-	<br>
-	<p>¥ £ <code>miz sv list installed</code> - List the services installed.</p>
-	<br>
-	<p>¥ £ <code>miz sv list linked</code> - List the services that have been added via <code>miz sv link</code>. For SystemD, this lists all enabled services.</p>
+	<ul>
+	  <li><code>miz sv link &lt;service&gt;</code> - Add a service. Lets it start up at boot.</li>
+	<li><code>miz sv unlink &lt;service&gt;</code> - Removes the <code>miz service link</code> effect. Removes the service.</li>
+	<li>¥ £ <code>miz sv disable &lt;service&gt;</code> - Prevents a service from starting at boot.</li>
+	<li>¥ £ <code>miz sv enable &lt;service&gt;</code> - Negates the <code>miz service disable</code> effect.</li>
+	<li>¥ £ <code>miz sv start &lt;service&gt;</code> - Starts a service.</li>
+	<li>¥ £ <code>miz sv stop &lt;service&gt;</code> - Stops a service.</li>
+	<li>¥ £ <code>miz sv restart &lt;service&gt;</code> - Restarts a service.</li>
+	<li>¥ £ <code>miz sv list installed</code> - List the services installed.</li>
+	<li>¥ £ <code>miz sv list linked</code> - List the services that have been added via <code>miz sv link</code>. For SystemD, this lists all enabled services.</li>
+	</ul>
 	<br>
 	<h3>Managing your graphics setup</h3>
-	<p><code>miz gfx xd &lt;command&gt;</code> - Runs the given command on the Dedicated GPU.</p>
-	<br>
-	<p><code>miz gfx xi &lt;command&gt;</code> - Runs the given command on the Integrated GPU.</p>
-	<br>
-	<p><code>miz gfx mode &lt;mode&gt;</code> - Changes your GPU setup.</p>
-	<br>
-	<p>54 - <code>miz gfx mode</code> is only available on Asus laptops, but may potentially work on multi-GPU setups with SystemD if you answered "y" to the Asus question during install.</p>
+	<ul>
+	<li><code>miz gfx xd &lt;command&gt;</code> - Runs the given command on the Dedicated GPU.</li>
+	<li><code>miz gfx xi &lt;command&gt;</code> - Runs the given command on the Integrated GPU.</li>
+	<li><code>miz gfx mode &lt;mode&gt;</code> - Changes your GPU setup.</li>
+	<li><code>miz gfx mode</code> is only available on Asus laptops, but may potentially work on multi-GPU setups with SystemD if you answered "y" to the Asus question during install.</li>
+	</ul>
 	<br>
 	<p><strong>gfx Modes:</strong></p>
 	<ul>
@@ -108,16 +100,13 @@
 	</ul>
 	<br>
 	<h3>Displaying system information</h3>
-	<p><code>miz info</code> - Displays system information via a modified neofetch.</p>
-	<br>
-	<p><code>miz info help</code> - Links you to the Discord Server.</p>
-	<br>
-	<p><code>miz info source</code> - Links you to the GitHub.</p>
-	<br>
-	<p><code>miz info creator</code> - Links you to the Duat website.</p>
-	<br>
-	<p><code>miz info uilist</code> - Prints the full list of preset DE/WM installs.</p>
-
+	<ul>
+	<li><code>miz info</code> - Displays system information via a modified neofetch.</li>
+	<li><code>miz info help</code> - Links you to the Discord Server.</li>
+	<li><code>miz info source</code> - Links you to the GitHub.</li>
+	<li><code>miz info creator</code> - Links you to the Duat website.</li>
+	<li><code>miz info uilist</code> - Prints the full list of preset DE/WM installs.</li>
+	</ul>
         <br>
       </article>
       <aside>
