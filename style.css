@@ -31,6 +31,14 @@ h1,.horizontal-divider {
     border-bottom: 1pt solid #313244;
 }
 
+h2 {
+	color: #cba6f7;
+}
+
+h3 {
+	color: #b4befe;
+}
+
 article {
     float: left;
     padding: 20px;
