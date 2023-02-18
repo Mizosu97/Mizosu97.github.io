@@ -24,8 +24,10 @@
 	<p> - Runit</p>
 	<br>
 	<br>
+	<br>
 	<h2>Method 1: Using the ISO image.</h2>
 	<p>The ISO image is still in development, and may not work properly.</p>
+	<br>
 	<br>
 	<h3>Pre-Installation</h2>
 	<br>
@@ -34,7 +36,8 @@
 		<li>Boot from the ISO image.</li>
 	</ul>
 	<br>
-	<h3>Install mizOS</h2>
+	<br>
+	<h3>Install mizOS</h3>
 	<p>Once booted into the live GNOME environment, there are a couple things you need to do.</p>
 	<br>
 	<p>The password for both the user and the root account on the live image is "123".</p>
@@ -55,13 +58,17 @@
 	<li>After selcting "No", follow the password prompts on the screen. The password prompts are asking for the passwords you have set for the installed root and user accounts, not the accounts on the live image.</li>
 	</ul>
 	<br>
+	<br>
 	<h3>Post Installation (Asus laptops only)</h3>
 	<p><strong>This only applies to ISO image installs.</strong></p>
 	<br>
 	<p>After you install mizOS, and boot into it for the frst time, you need to run <code>miz gfx setup</code> to automatically set up asusctl and supergfxctl.</p>
 	<br>
+	<br>
+	<br>
 	<h2>Method 2: Hijacking a pre-existing Arch Linux install.</h2>
 	<p>Hijacking an install gives more flexibilty on how you want your mizOS installation to be. You can even hijack an install with an init system that is not SystemD, as long as it is either Runit or OpenRC.</p>
+	<br>
 	<br>
 	<h3>Pre-Installation</h3>
 	<ul>
@@ -77,6 +84,7 @@
 	<li>Update your system with <code>sudo pacman -Syu</code>.</li>
 	<li>Make sure you have the <code>git</code> package installed with <code>sudo pacman -S git</code>.</li>
 	</ul>
+	<br>
 	<br>
 	<h3>Install mizOS</h3>
 	<ul>
