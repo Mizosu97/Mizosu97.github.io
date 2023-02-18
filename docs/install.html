@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link href="/style.css" rel="stylesheet">
+  </head>
+  <body>
+    <section>
+      <article>
+        <h1>Welcome to the Duat!</h1>
+        <h4>Home of the miz Operating System</h4>
+        <br>
+        <br>
+	<h2>How do I install mizOS?</h2>
+	<p>There are 2 ways to install mizOS. You can either use the ISO image, or you can "hijack" a current Arch Linux or Arch Linux-based operating system already installed on your device, and convert it into mizOS.</p>
+	<br>
+	<p> - The ISO image currently only supports SystemD. If you want to use a different init system, you must use the hijack method.</p>
+	<br>
+	<p> - If you want to install mizOS onto an Asus laptop, you MUST use SystemD. The tools asusctl and supergfxctl, which are a necessity on Asus laptops, are simply not compatible with other init systems.</p>
+        <br>
+	<br>
+	<p>The hijack method currently supports the following init systems:</p>
+	<p> - SystemD</p>
+	<p> - OpenRC</p>
+	<p> - Runit</p>
+	<br>
+	<br>
+	<h2>Method 1: Using the ISO image.</h2>
+	<p>The ISO image is still in development, and may not work properly.</p>
+	<br>
+	<h3>Pre-Installation</h2>
+	<br>
+	<ul>
+		<li>Get the ISO image <a href="https://github.com/Mizosu97/mizos_iso">here</a>, and flash it to some form of external storage. Or load it into a virtual machine, whatever suits your needs.</li>
+		<li>Boot from the ISO image.</li>
+	</ul>
+	<br>
+	<h3>Install mizOS</h2>
+	<p>Once booted into the live GNOME environment, there are a couple things you need to do.</p>
+	<br>
+	<p>The password for both the user and the root account on the live image is "123".</p>
+	<br>
+	<ul>
+	<li>Open a terminal.</li>
+	<li>Run the command <code>sudo mount -o remount,size=2G /run/archiso/cowspace</code> to increase the storage space for the live ISO image.</li>
+	<li>If you are using a wifi connection, start Network Manager with the command <code>sudo systemctl enable NetworkManager &amp;&amp; sudo systemctl start NetworkManager</code>. Then connect to wifi by either using <code>nmtui</code> or <code>gnome-control-panel</code>.</li>
+	<li>Update the live ISO image's software and repos with <code>sudo pacman -Syu</code>.</li>
+	<li>Now, you can start the mizOS installation with the command <code>sudo chmod +x /usr/local/bin/install_mizos &amp;&amp; install_mizos</code>.</li>
+	</ul>
+	<br>
+	<p><strong>Read the "Important Notes" section below:</strong></p>
+	<br>
+	<p><strong>Important Notes:</strong></p>
+	<ul>
+	<li>When the menu asks if you want to chroot into the new install, select "No".</li>
+	<li>After selcting "No", follow the password prompts on the screen. The password prompts are asking for the passwords you have set for the installed root and user accounts, not the accounts on the live image.</li>
+	</ul>
+	<br>
+	<h3>Post Installation (Asus laptops only)</h3>
+	<p><strong>This only applies to ISO image installs.</strong></p>
+	<br>
+	<p>After you install mizOS, and boot into it for the frst time, you need to run <code>miz gfx setup</code> to automatically set up asusctl and supergfxctl.</p>
+	<br>
+	<h2>Method 2: Hijacking a pre-existing Arch Linux install.</h2>
+	<p>Hijacking an install gives more flexibilty on how you want your mizOS installation to be. You can even hijack an install with an init system that is not SystemD, as long as it is either Runit or OpenRC.</p>
+	<br>
+	<h3>Pre-Installation</h3>
+	<ul>
+	<li>Add the g14 repo to <code>/etc/pacman.conf</code>.</li>
+	</ul>
+	<pre><code>[g14]
+	SigLevel = DatabaseNever Optional TrustAll
+	Server = https://arch.asus-linux.org
+	</code></pre>
+	<br>
+	<ul>
+	<li>On an Artix system, you need to enable the Arch Linux repositories. <a href="https://wiki.artixlinux.org/Main/Repositories">tutorial here</a>.</li>
+	<li>Update your system with <code>sudo pacman -Syu</code>.</li>
+	<li>Make sure you have the <code>git</code> package installed with <code>sudo pacman -S git</code>.</li>
+	</ul>
+	<br>
+	<h3>Install mizOS</h3>
+	<ul>
+	<li>Download mizOS with <code>git clone https://github.com/Mizosu97/mizOS</code></li>
+	<li>Change your directory into mizOS with <code>cd mizOS</code></li>
+	<li>Run <code>./install</code> to install mizOS</li>
+	</ul>
+      </article>
+      <aside>
+        <iframe name="nav" src="/nav.html" width="100%" height="100%" frameBorder="0"></iframe>
+      </aside>
+    </section>
+  </body>
+</html>

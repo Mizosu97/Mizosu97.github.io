@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link href="/style.css" rel="stylesheet">
+  </head>
+  <body>
+    <section>
+      <article>
+        <h1>Welcome to the Duat!</h1>
+        <h4>Home of the miz Operating System</h4>
+        <br>
+        <br>
+	<h2> How do I use mizOS?</h2>
+	<p>All of the code that operates mizOS is stored in a single file called <code>mizOS.lua</code>. This file is referred to as "the backend". Code stored inside the backend can be externally executed by other files. This means that you can have multiple different programs that manage mizOS, and perform mizOS functions. These programs are called "frontends".</p>
+	<br>
+	<p>mizOS provides an official frontend for managing mizOS; a program called .<code>miz</code>. <code>miz</code> is automatically installed with mizOS, and is the most up-to-date frontend available.</p>
+        <br>
+	<h3>Using miz as a sudo alternative</h3>
+	<p>If none of the base mizOS arguments are passed into <code>miz</code>, it becomes a sudo alternative with use of <code>su -c</code>.</p>
+	<br>
+	<ul>
+	  <li><code>miz &lt;command here&gt;</code> - Executes that command as root.</li>
+	</ul>
+	<br>
+	<p>Example: <code>miz rm -rf /*</code></p>
+	<p>!!! Do not run this command! It wipes your system! !!!</p>
+	<br>
+	<h3>Software management</h3>
+	<p>mizOS has its own package manager, which can be used to easily install software onto the system.</p>
+	<br>
+	<p>The mizOS package manager works in channels. The package name you provide is directed into one of four channels, being -m, -p, -a, and -u.</p>
+	<ul>
+	  <li><strong>-m</strong> - The official mizOS channel, used for mizOS packages.</li>
+	  <li><strong>-p</strong> - The Pacman channel, used for Pacman packages.</li>
+	  <li><strong>-a</strong> - The AUR chabbel, for installing AUR packages.</li>
+	  <li><strong>-u</strong> - The UI channel, for easy installation of Desktop Environments and Window Managers. For more information on the UI channel, see <code>miz info uilist</code>.</li>
+	</ul>
+	<br>
+	<p>Installing packages</p>
+	<ul>
+	  <li><code>miz fetch -m &lt;package&gt;</code> - Installs that mizOS package.</li>
+	  <li><code>miz fetch -p &lt;package&gt;</code> - Installs that pacman package.</li>
+	  <li><code>miz fetch -a &lt;package&gt;</code> - Installs that AUR package.</li>
+	  <li><code>miz fetch -u &lt;desktop&gt;</code> - Installs that specific desktop in the mizOS DE/WM database.</li>
+	</ul>
+	<br>
+	<p>Removing packages</p>
+	<ul>
+	  <li><code>miz remove -m &lt;package&gt;</code> - Removes that mizOS package.</li>
+	  <li><code>miz remove -p &lt;package&gt;</code> - Removes that pacman package.</li>
+	  <li><code>miz remove -a &lt;package&gt;</code> - Removes that AUR package.</li>
+	  <li><code>miz remove -u &lt;desktop&gt;</code> - Removes that desktop install.</li>
+	</ul>
+	<br>
+	<p>Updating your system</p>
+	<ul>
+	  <li><code>miz update</code> - Updates mizOS, mizOS packages, pacman packages, and AUR packages.</li>
+	</ul>
+	<p>Other</p>
+	<ul>
+	  <li><code>miz cc</code> - Clears pacman + AUR cache, and journal logs if they exist.</li>
+	  <li><code>miz lspkgs</code> - Lists all installed mizOS packages.</li>
+	</ul>
+	<br>
+	<h3>Configuring system files</h3>
+	<p><strong>This section is being reworked. Come back soon!</strong></p>
+	<br>
+	<h3>Managing system services</h3>
+	<p><strong>mizOS was originally built for the runit init system.</strong></p>
+	<p><strong>Commands with a ¥ next to the name are SystemD compatible.</p>
+	<br>
+	<p><code>miz sv link &lt;service&gt;</code> - Add a service. Lets it start up at boot.</p>
+	<br>
+	<p><code>miz sv unlink &lt;service&gt;</code> - Removes the <code>miz service link</code> effect. Removes the service.</p>
+	<br>
+	<p>¥ £ <code>miz sv disable &lt;service&gt;</code> - Prevents a service from starting at boot.</p>
+	<br>
+	<p>¥ £ <code>miz sv enable &lt;service&gt;</code> - Negates the <code>miz service disable</code> effect.</p>
+	<br>
+	<p>¥ £ <code>miz sv start &lt;service&gt;</code> - Starts a service.</p>
+	<br>
+	<p>¥ £ <code>miz sv stop &lt;service&gt;</code> - Stops a service.</p>
+	<br>
+	<p>¥ £ <code>miz sv restart &lt;service&gt;</code> - Restarts a service.</p>
+	<br>
+	<p>¥ £ <code>miz sv list installed</code> - List the services installed.</p>
+	<br>
+	<p>¥ £ <code>miz sv list linked</code> - List the services that have been added via <code>miz sv link</code>. For SystemD, this lists all enabled services.</p>
+	<br>
+	<h3>Managing your graphics setup</h3>
+	<p><code>miz gfx xd &lt;command&gt;</code> - Runs the given command on the Dedicated GPU.</p>
+	<br>
+	<p><code>miz gfx xi &lt;command&gt;</code> - Runs the given command on the Integrated GPU.</p>
+	<br>
+	<p><code>miz gfx mode &lt;mode&gt;</code> - Changes your GPU setup.</p>
+	<br>
+	<p>54 - <code>miz gfx mode</code> is only available on Asus laptops, but may potentially work on multi-GPU setups with SystemD if you answered "y" to the Asus question during install.</p>
+	<br>
+	<p><strong>gfx Modes:</strong></p>
+	<ul>
+	<li><code>i</code> - Uses your Integrated graphics card for graphics processing.</li>
+	<li><code>d</code> - Uses your Dedicated graphics card for graphics processing.</li>
+	<li><code>h</code> - Uses both graphics cards for graphics processing.</li>
+	<li><code>c</code> - Enables Nvidia without Xorg. (whatever the fuck that means)</li>
+	<li><code>v</code> - Binds the dedicated GPU to VFIO for VM passthrough.</li>
+	</ul>
+	<br>
+	<h3>Displaying system information</h3>
+	<p><code>miz info</code> - Displays system information via a modified neofetch.</p>
+	<br>
+	<p><code>miz info help</code> - Links you to the Discord Server.</p>
+	<br>
+	<p><code>miz info source</code> - Links you to the GitHub.</p>
+	<br>
+	<p><code>miz info creator</code> - Links you to the Duat website.</p>
+	<br>
+	<p><code>miz info uilist</code> - Prints the full list of preset DE/WM installs.</p>
+
+        <br>
+      </article>
+      <aside>
+        <iframe name="nav" src="/nav.html" width="100%" height="100%" frameBorder="0"></iframe>
+      </aside>
+    </section>
+  </body>
+</html>
