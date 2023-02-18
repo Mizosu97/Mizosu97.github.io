@@ -108,6 +108,30 @@
 	<li><code>miz info uilist</code> - Prints the full list of preset DE/WM installs.</li>
 	</ul>
         <br>
+	<br>
+	<h2>Using the package manager.</h2>
+	<p>The mizOS package manager is a Github-centric package manager. Each package is stored on a Github repository, which follows the mizOS packaging format.</p>
+	<br>
+	<p>A mizOS package name consists of 2 parts. The developer name, and the software name.</p>
+	<br>
+	<p>Let's look at the package name <code>orwell/tool</code>.</p>
+	<ul>
+	<li><code>orwell</code> is the first part of the package name. It is the Github account name of the package developer.</li>
+	<li><code>tool</code> Is the second part of the package name. It is the name of the Github repository where the package is being stored.</li>
+	</ul>
+	<br>
+	<p>Here's an example of installing/uninstalling <code>orwell/tool</code>:</p>
+	<ul>
+	<li><code>miz fetch orwell/tool</code></li>
+	<li><code>miz remove orwell/tool</code></li>
+	</ul>
+	<br>
+	<p>mizOS keeps track of package dependencies, files, and folders for you, so installation and uninstallation take place seamlessly.</p>
+	<br>
+	<p>If you want to make your own package, or want to upload your package to the Duat, check out our <a href="/packages/contributing.html">contributing</a> page.</p>
+	<br>
+	<p>For a full list of all Duat packages, see <a href="/packages/home.html">here</a>.</p>
+	<br>
       </article>
       <aside>
         <iframe name="nav" src="/nav.html" width="100%" height="100%" frameBorder="0"></iframe>
