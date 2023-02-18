@@ -39,6 +39,11 @@ h3 {
 	color: #cba6f7;
 }
 
+code {
+	background-color: #313244;
+	border-radius: 5px;
+}
+
 article {
     float: left;
     padding: 20px;
