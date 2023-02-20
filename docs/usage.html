@@ -85,7 +85,6 @@
 	<h3>Managing your graphics setup</h3>
 	<ul>
 	<li><code>miz gfx xd &lt;command&gt;</code> - Runs the given command on the Dedicated GPU.</li>
-	<li><code>miz gfx xi &lt;command&gt;</code> - Runs the given command on the Integrated GPU.</li>
 	<li><code>miz gfx mode &lt;mode&gt;</code> - Changes your GPU setup.</li>
 	<li><code>miz gfx mode</code> is only available on Asus laptops, but may potentially work on multi-GPU setups with SystemD if you answered "y" to the Asus question during install.</li>
 	</ul>
@@ -109,29 +108,18 @@
 	</ul>
         <br>
 	<br>
-	<h2>Using the package manager.</h2>
-	<p>The mizOS package manager is a Github-centric package manager. Each package is stored on a Github repository, which follows the mizOS packaging format.</p>
+	<h2>The mizOS Package Manager</h2>
+	<p>mizOS is equipped with a powerful package manager that makes it easy for users to install and manage software packages. Unlike traditional package managers that rely on centralized repositories, mizOS's package manager is GitHub-centric. This means that each package is stored on its own individual GitHub repository, and anyone can create a GitHub repository that follows the mizOS packaging format and publish a package that is installable by anyone else within seconds.</p>
 	<br>
-	<p>A mizOS package name consists of 2 parts. The developer name, and the software name.</p>
+<p>Using the <code>githubAccountName/repoName</code> syntax, mizOS's package manager can quickly locate the package on GitHub and install or remove it as needed. <code>githubAccountName</code> refers to the username of the GitHub account who owns the repository where the package is located, and <code>repoName</code> refers to the name of said repository. For example, to install a package named "my-great-package" created by a developer named "JaneSmith", users would use the command <code>miz fetch JaneSmith/my-great-package</code>. Package names are not case sensitive.</p>
 	<br>
-	<p>Let's look at the package name <code>orwell/tool</code>.</p>
-	<ul>
-	<li><code>orwell</code> is the first part of the package name. It is the Github account name of the package developer.</li>
-	<li><code>tool</code> Is the second part of the package name. It is the name of the Github repository where the package is being stored.</li>
-	</ul>
+<p>This approach has several advantages. Firstly, it makes it incredibly easy for developers to create and publish packages. All they need to do is create a GitHub repository that follows the mizOS packaging format, and their package will be immediately available to all mizOS users. This means that anyone can contribute to the ecosystem and publish their own software packages, making mizOS a truly community-driven operating system.</p>
 	<br>
-	<p>Here's an example of installing/uninstalling <code>orwell/tool</code>:</p>
-	<ul>
-	<li><code>miz fetch orwell/tool</code></li>
-	<li><code>miz remove orwell/tool</code></li>
-	</ul>
+<p>Secondly, the GitHub-centric approach ensures that packages are always up-to-date, as developers can push updates to their repositories at any time. Additionally, because each package is stored on its own repository, users can easily inspect the source code and contribute to the package if they wish.</p>
 	<br>
-	<p>mizOS keeps track of package dependencies, files, and folders for you, so installation and uninstallation take place seamlessly.</p>
+	<p>To ensure mizOS system security, be cautious when installing packages, and only install packages from trusted sources, such as <a href="/packages/home.html">those listed on the Duat website</a>. Our GitHub-centric package manager allows anyone to publish a package, so it's important to research developers and their repositories before installing a package that is not on our official list. We encourage you to regularly monitor your system for any suspicious activity and report any issues to the mizOS community.</p>
 	<br>
-	<p>If you want to make your own package, or want to upload your package to the Duat, check out our <a href="/packages/contributing.html">contributing</a> page.</p>
-	<br>
-	<p>For a full list of all Duat packages, see <a href="/packages/home.html">here</a>.</p>
-	<br>
+	<p>If you would like to create a package, or add a package to the Duat, see <a href="/packages/contributing.html">this guide</a>.</p>
       </article>
       <aside>
         <iframe name="nav" src="/nav.html" width="100%" height="100%" frameBorder="0"></iframe>
