@@ -1,9 +1,10 @@
-packages = {}
+packages = {
+	["official"] = {
+		["mizosu97/grapejuice"] = true
+	},
 
-packages.official = {
-	["mizosu97/grapejuice"] = true
+	["community"] = {
+	}
 }
-
-packages.community = {}
 
 return packages
