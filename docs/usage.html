@@ -65,7 +65,9 @@
 	</ul>
 	<br>
 	<h3>Configuring system files</h3>
-	<p><strong>This section is being reworked. Come back soon!</strong></p>
+	<ul>
+	<li><code>miz config pkgsec &lt;security type&gt;</code> - Sets the mizOS package security type. See "The mizOS Package Manager" for more information.</li>
+	</ul>
 	<br>
 	<h3>Managing system services</h3>
 	<p><strong>mizOS was originally built for the runit init system.</strong></p>
@@ -117,7 +119,16 @@
 	<br>
 <p>Secondly, the GitHub-centric approach ensures that packages are always up-to-date, as developers can push updates to their repositories at any time. Additionally, because each package is stored on its own repository, users can easily inspect the source code and contribute to the package if they wish.</p>
 	<br>
-	<p>To ensure mizOS system security, be cautious when installing packages, and only install packages from trusted sources, such as <a href="/packages/home.html">those listed on the Duat website</a>. Our GitHub-centric package manager allows anyone to publish a package, so it's important to research developers and their repositories before installing a package that is not on our official list. We encourage you to regularly monitor your system for any suspicious activity and report any issues to the mizOS community.</p>
+	<p>To ensure the security of your system, mizOS blocks the installation of packages not listed on the Duat. If you want to be able to install packages from any Github reposirory in existence, you must change your security type.</p>
+	<br>
+	<p>Security types:</p>
+	<ul>
+	<li><code>strict</code> - Can only install packages from the Duat's <a href="/packages/official.html">official package list</a>.</li>
+	<li><code>moderate</code> - Can only install packages from the Duat's <a href="/packages/official.html">official package list</a> and the Duat's <a href="/packages/community.html">community package list</a>.</li>
+	<li><code>none</code> - Can install any mizOS package uploaded to Github.</li>
+	</ul>
+	<br>
+	<p>To change your security type with the <code>miz</code> frontend, the command is <code>miz config pkgsec &lt;security type&gt;</code>. By default, the security type is set to <code>strict</code></p>
 	<br>
 	<p>If you would like to create a package, or add a package to the Duat, see <a href="/packages/contributing.html">this guide</a>.</p>
 	<br>
