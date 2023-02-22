@@ -64,14 +64,15 @@
 	  <li><code>miz lspkgs</code> - Lists all installed mizOS packages.</li>
 	</ul>
 	<br>
-	<h3>Configuring system files</h3>
+	<h3>Configuring the system</h3>
 	<ul>
-	<li><code>miz config pkgsec &lt;security type&gt;</code> - Sets the mizOS package security type. See "The mizOS Package Manager" for more information.</li>
+	<li><code>miz config pkgsec &lt;security type&gt;</code> - Sets the mizOS package security type. See "The mizOS Package Manager" section below for more information.</li>
+	<li><code>miz config wallpaper &lt;file&gt;</code> - Sets the specified file as your wallpaper. Must be .png, .jpg, or .webm.</li>
 	</ul>
 	<br>
 	<h3>Managing system services</h3>
 	<p><strong>mizOS was originally built for the runit init system.</strong></p>
-	<p><strong>Commands with a ¥ next to the name are SystemD compatible.</p>
+	<p><strong>Commands with a ¥ next to the name are SystemD compatible. Commands with a £ next to the name are OpenRC compatible.</p>
 	<ul>
 	  <li><code>miz sv link &lt;service&gt;</code> - Add a service. Lets it start up at boot.</li>
 	<li><code>miz sv unlink &lt;service&gt;</code> - Removes the <code>miz service link</code> effect. Removes the service.</li>
@@ -88,7 +89,7 @@
 	<ul>
 	<li><code>miz gfx xd &lt;command&gt;</code> - Runs the given command on the Dedicated GPU.</li>
 	<li><code>miz gfx mode &lt;mode&gt;</code> - Changes your GPU setup.</li>
-	<li><code>miz gfx mode</code> is only available on Asus laptops, but may potentially work on multi-GPU setups with SystemD if you answered "y" to the Asus question during install.</li>
+	<li><code>miz gfx mode</code> is only available on Asus laptops, but may potentially work on multi-GPU setups with SystemD if you answered "y" to the Asus question during install. I don't recommend doing this though, nobody has tried it yet.</li>
 	</ul>
 	<br>
 	<p><strong>gfx Modes:</strong></p>
