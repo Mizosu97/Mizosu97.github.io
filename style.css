@@ -3,6 +3,10 @@
     margin: 0 auto;
 }
 
+b, strong {
+	color: #b4befe;
+}
+
 aside {
     float: left;
     width: 20%;
