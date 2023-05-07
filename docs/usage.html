@@ -16,7 +16,8 @@
 	<p>mizOS provides a frontend for you, called <code>miz</code>. It is a command-line oriented frontend, and is the most up-to-date frontend available.</p>
 	<br>
 	<br>
-	<h2>Using the miz frontend</h2>
+	<br>
+	<h2>Using the miz frontend</h2>a
 	<h3>Displaying system information.</h3>
 	<ul>
 		<li><code>miz info help</code> - Displays links to this website, the Github, and the Discord server.</li>
@@ -26,6 +27,7 @@
 		<li><code>miz info i3settings</code> - Displays all current i3 settings.</li>
 		<li><code>miz info gtksettings</code> - Displays all current GTK settings.</li>
 	</ul>
+	<br>
 	<br>
 	<h3>Configuring system settings</h3>
 	<p>mizOS offers a powerful configuration utility, aiming to provide support for as much of your system as possible.</p>
@@ -60,6 +62,7 @@
 		<li><code>miz config cursor-theme &lt;theme_name&gt;</code> - Changes your cursor theme to the specified theme. (May require a reboot.)</li>
 	</ul>
 	<br>
+	<br>
 	<h3>System service management</h3>
 	<p>mizOS's powerful service management aims to standardize commands across init systems. With mizOS, service management commands are more or less the same across SystemD, Runit, and OpenRC.</p>
 	<ul>
@@ -73,6 +76,7 @@
 		<li><code>miz sv list installed</code> - List all services currently installed.</li>
 		<li><code>miz sv list linked</code> - Lists the services that have been added via <code>miz sv link</code>. For SystemD, this lists all currently enabled services.</li>
 	</ul>
+	<br>
 	<br>
 	<h3>Graphics card management</h3>
 	<b>Command execution</b>
@@ -93,6 +97,7 @@
 		<li><code>c</code> - Compute. Quote unquote "enables Nvidia without Xorg".</li>
 		<li><code>v</code> - VFIO. Binds your dedicated GPU to VFIO for VM passthrough.</li>
 	</ul>
+	<br>
 	<br>
 	<h3>Software management</h3>
 	<p>mizOS's software management utilities allow for a simpler, more congruent software management experience.</p>
@@ -122,11 +127,14 @@
 		<li><code>miz cc</code> - Clears the package cache for Pacman and AUR packages. Also clears the SystemD journal logs, if SystemD is present.</li>
 	</ul>
 	<br>
+	<be>
 	<h3>System updates</h3>
 	<ul>
 		<li><code>miz update</code> - Updates mizOS, Pacman packages, and AUR packages.</li>
 		<li><code>miz update dev</code> - Same as <code>miz update</code>, except it updates to the lastest developer edition. This is used solely for development purposes, and may break your system.</li>
 	</ul>
+	<br>
+	<br>
 	<br>
 	<h2>The mizOS Package Manager</h2>
 	<p>mizOS is equipped with a powerful package manager that makes it easy for users to install and manage software packages. Unlike traditional package managers that rely on centralized repositories, mizOS's package manager is GitHub-centric. This means that each package is stored on its own individual GitHub repository, and anyone can create a GitHub repository that follows the mizOS packaging format and publish a package that is installable by anyone else within seconds.</p>
@@ -149,6 +157,7 @@
 	<p>To change your security type with the <code>miz</code> frontend, the command is <code>miz config pkgsec &lt;security type&gt;</code>. By default, the security type is set to <code>strict</code></p>
 	<br>
 	<p>If you would like to create a package, or add a package to the Duat, see <a href="/packages/contributing.html">this guide</a>.</p>
+	<br>
 	<br>
 	<br>
 	<h2>Using i3</h2>
