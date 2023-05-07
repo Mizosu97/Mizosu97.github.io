@@ -9,71 +9,34 @@
         <h1>Welcome to the Duat!</h1>
         <h4>Home of the miz Operating System</h4>
         <br>
-	<p><b>WARNING. There has been a major mizOS rewrite pushed in the last few days. Some information on this page is incorrect. Some commands have changed, some have been removed, and some new ones have been added which lack documentation. I will be updating this page when I have time.</b><p>
         <br>
 	<h2> How do I use mizOS?</h2>
-	<p>All of the code that operates mizOS is stored in a single file called <code>mizOS.lua</code>. This file is referred to as "the backend". Code stored inside the backend can be externally executed by other files. This means that you can have multiple different programs that manage mizOS, and perform mizOS functions. These programs are called "frontends".</p>
+	<p>Mostly all of the code regarding mizOS-related functionality is stored in the directory <code>/var/mizOS/core</code>. This code is commonly referred to as "the backend". Code stored inside the backend can be executed by other programs, called "frontends". Frontends are programs that the user use, they provide a way to easily interact with the code inside the backend.</p>
 	<br>
-	<p>mizOS provides an official frontend for managing mizOS; a program called .<code>miz</code>. <code>miz</code> is automatically installed with mizOS, and is the most up-to-date frontend available.</p>
+	<p>mizOS provides a frontend for you, called <code>miz</code>. It is a command-line oriented frontend, and is the most up-to-date frontend available.</p>
 	<br>
 	<br>
 	<h2>Using the miz frontend</h2>
-	<h3>Using miz as a sudo alternative</h3>
-	<p>If none of the base mizOS arguments are passed into <code>miz</code>, it becomes a sudo alternative with use of <code>su -c</code>.</p>
-	<br>
+	<h3>Displaying system information.</h3>
 	<ul>
-	  <li><code>miz &lt;command here&gt;</code> - Executes that command as root.</li>
+		<li><code>miz info help</code> - Displays links to this website, the Github, and the Discord server.</li>
+		<li><code>miz info uilist</code> - Prints the full list of installable desktop environments / window managers.</li>
+		<li><code>miz info pkgs</code> - Lists all installed mizOS packages.</li>
+		<li><code>miz info repo</code> - Lists all mizOS packages on the Duat's package repository.</li>
+		<li><code>miz info i3settings</code> - Displays all current i3 settings.</li>
+		<li><code>miz info gtksettings</code> - Displays all current GTK settings.</li>
 	</ul>
 	<br>
-	<p>Example: <code>miz rm -rf /*</code></p>
-	<p>!!! Do not run this command! It wipes your system! !!!</p>
-	<br>
-	<h3>Software management</h3>
-	<p>mizOS has its own package manager, which can be used to easily install software onto the system.</p>
-	<br>
-	<p>The mizOS package manager works in channels. The package name you provide is directed into one of four channels, being -m, -p, -a, and -u.</p>
+	<h3>Configuring system settings</h3>
+	<p>mizOS offers a powerful configuration utility, aiming to provide support for as much of your system as possible.</p>
+	<b>General-purpose configuration</b>
 	<ul>
-	  <li><strong>-m</strong> - The official mizOS channel, used for mizOS packages.</li>
-	  <li><strong>-p</strong> - The Pacman channel, used for Pacman packages.</li>
-	  <li><strong>-a</strong> - The AUR chabbel, for installing AUR packages.</li>
-	  <li><strong>-u</strong> - The UI channel, for easy installation of Desktop Environments and Window Managers. For more information on the UI channel, see <code>miz info uilist</code>.</li>
+		<li><code>miz config pkgsec &lt;security_type&gt;</code> - Change your package security type. For more information, see "The mizOS Package Manager" below.</li>
 	</ul>
 	<br>
-	<p>Installing packages</p>
+	<b>Configuring your desktop environment (i3)</b>
 	<ul>
-	  <li><code>miz fetch -m &lt;package&gt;</code> - Installs that mizOS package.</li>
-	  <li><code>miz fetch -p &lt;package&gt;</code> - Installs that pacman package.</li>
-	  <li><code>miz fetch -a &lt;package&gt;</code> - Installs that AUR package.</li>
-	  <li><code>miz fetch -u &lt;desktop&gt;</code> - Installs that specific desktop in the mizOS DE/WM database.</li>
-	</ul>
-	<br>
-	<p>Removing packages</p>
-	<ul>
-	  <li><code>miz remove -m &lt;package&gt;</code> - Removes that mizOS package.</li>
-	  <li><code>miz remove -p &lt;package&gt;</code> - Removes that pacman package.</li>
-	  <li><code>miz remove -a &lt;package&gt;</code> - Removes that AUR package.</li>
-	  <li><code>miz remove -u &lt;desktop&gt;</code> - Removes that desktop install.</li>
-	</ul>
-	<br>
-	<p>Updating your system</p>
-	<ul>
-	  <li><code>miz update</code> - Updates mizOS, mizOS packages, pacman packages, and AUR packages.</li>
-	</ul>
-	<p>Other</p>
-	<ul>
-	  <li><code>miz cc</code> - Clears pacman + AUR cache, and journal logs if they exist.</li>
-	  <li><code>miz lspkgs</code> - Lists all installed mizOS packages.</li>
-	</ul>
-	<br>
-	<h3>Configuring the system</h3>
-	<ul>
-	<li><code>miz config pkgsec &lt;security type&gt;</code> - Sets the mizOS package security type. See "The mizOS Package Manager" section below for more information.</li>
-	</ul>
-	<br>
-	<strong>i3</strong>
-	<p>With mizOS, you can also configure i3 from the command line (miz frontend).</p>
-	<p>Please note that hex color arguments do not contain a "#".</p>
-	<ul>
+		<li><code>miz config wallpaper &lt;path&gt;</code> - Sets the specified image at &lt;path&gt; as your wallpaper. Supports .png, .jpg, and .webp images.</li>
 		<li><code>miz config bar-color &lt;hexcolor&gt;</code> - Sets the status bar color.</li>
 		<li><code>miz config bar-position &lt;top/bottom&gt;</code> - Sets the status bar position.</li>
 		<li><code>miz config border-color1 &lt;hexcolor&gt;</code> - Sets the border color for focused windows.</li>
@@ -83,55 +46,87 @@
 		<li><code>miz config gaps-inner &lt;number&gt;</code> - Sets the inner gap pixel size.</li>
 		<li><code>miz config gaps-outer &lt;number&gt;</code> - Sets the outer gap pixel size.</li>
 		<li><code>miz config mod-key &lt;Mod1/Mod2/Mod3/Mod4&gt;</code> - Sets the mod key.</li>
-		<li><code>miz config wallpaper &lt;file&gt;</code> - Sets the specified file as your wallpaper. Must be .png, .jpg, or .webm.</li>
 		<li><code>miz config ws-bg-color1 &lt;hexcolor&gt;</code> - Sets the active workspace button background color.</li>
 		<li><code>miz config ws-bg-color2 &lt;hexcolor&gt;</code> - Sets the inactive workspace button background color.</li>
 		<li><code>miz config ws-bg-color3 &lt;hexcolor&gt;</code> - Sets the urgent workspace button background color.</li>
 		<li><code>miz config ws-txt-color1 &lt;hexcolor&gt;</code> - Sets the active workspace button text color.</li>
 		<li><code>miz config ws-txt-color2 &lt;hexcolor&gt;</code> - Sets the inactive workspace button text color.</li>
-		<li><code>miz config ws-txt-color3 &lt;hexcolor&gt;</code> - Sets the urgent workspace button text color.</li>
 	</ul>
 	<br>
-	<h3>Managing system services</h3>
-	<p><strong>mizOS was originally built for the runit init system.</strong></p>
-	<p><strong>Commands with a ¥ next to the name are SystemD compatible. Commands with a £ next to the name are OpenRC compatible.</p>
+	<b>Configuring GTK settings</b>
 	<ul>
-	  <li><code>miz sv link &lt;service&gt;</code> - Add a service. Lets it start up at boot.</li>
-	<li><code>miz sv unlink &lt;service&gt;</code> - Removes the <code>miz service link</code> effect. Removes the service.</li>
-	<li>¥ £ <code>miz sv disable &lt;service&gt;</code> - Prevents a service from starting at boot.</li>
-	<li>¥ £ <code>miz sv enable &lt;service&gt;</code> - Negates the <code>miz service disable</code> effect.</li>
-	<li>¥ £ <code>miz sv start &lt;service&gt;</code> - Starts a service.</li>
-	<li>¥ £ <code>miz sv stop &lt;service&gt;</code> - Stops a service.</li>
-	<li>¥ £ <code>miz sv restart &lt;service&gt;</code> - Restarts a service.</li>
-	<li>¥ £ <code>miz sv list installed</code> - List the services installed.</li>
-	<li>¥ £ <code>miz sv list linked</code> - List the services that have been added via <code>miz sv link</code>. For SystemD, this lists all enabled services.</li>
+		<li><code>miz config gtk-theme &lt;theme_name&gt;</code> - Changes your GTK theme to the specified theme.</li>
+		<li><code>miz config icon-theme &lt;theme_name&gt;</code> - Changes your icon theme to the specified theme.</li>
+		<li><code>miz config cursor-theme &lt;theme_name&gt;</code> - Changes your cursor theme to the specified theme. (May require a reboot.)</li>
 	</ul>
 	<br>
-	<h3>Managing your graphics setup</h3>
+	<h3>System service management</h3>
+	<p>mizOS's powerful service management aims to standardize commands across init systems. With mizOS, service management commands are more or less the same across SystemD, Runit, and OpenRC.</p>
 	<ul>
-	<li><code>miz gfx xd &lt;command&gt;</code> - Runs the given command on the Dedicated GPU.</li>
-	<li><code>miz gfx mode &lt;mode&gt;</code> - Changes your GPU setup.</li>
-	<li><code>miz gfx mode</code> is only available on Asus laptops, but may potentially work on multi-GPU setups with SystemD if you answered "y" to the Asus question during install. I don't recommend doing this though, nobody has tried it yet.</li>
+		<li><code>miz sv link &lt;service&gt;</code> - [Runit only] "Adds" a service, enabling it to be managed by the commands below.</li>
+		<li><code>miz sv unlink &lt;service&gt;</code> - Negates the effect of the previous command.</li>
+		<li><code>miz sv enable &lt;service&gt;</code> - Enables a service, allowing it to start at boot.</li>
+		<li><code>miz sv disable &lt;service&gt;</code> - Disable a service enabled by the command above.</li>
+		<li><code>miz sv start &lt;service&gt;</code> - Starts a service.</li>
+		<li><code>miz sv stop &lt;service&gt;</code> - Stops a service.</li>
+		<li><code>miz sv restart &lt;service&gt;</code> - Restarts a service.</li>
+		<li><code>miz sv list installed</code> - List all services currently installed.</li>
+		<li><code>miz sv list linked</code> - Lists the services that have been added via <code>miz sv link</code>. For SystemD, this lists all currently enabled services.</li>
 	</ul>
 	<br>
-	<p><strong>gfx Modes:</strong></p>
+	<h3>Graphics card management</h3>
+	<b>Command execution</b>
 	<ul>
-	<li><code>i</code> - Uses your Integrated graphics card for graphics processing.</li>
-	<li><code>d</code> - Uses your Dedicated graphics card for graphics processing.</li>
-	<li><code>h</code> - Uses both graphics cards for graphics processing.</li>
-	<li><code>c</code> - Enables Nvidia without Xorg. (whatever the fuck that means)</li>
-	<li><code>v</code> - Binds the dedicated GPU to VFIO for VM passthrough.</li>
+		<li><code>miz gfx xd &lt;command&gt;</code> - Execute the given command on the dedicated GPU.</li>
+		<li><code>miz gfx xi &lt;command&gt;</code> - Execute the given command on the integrated GPU.</li>
 	</ul>
 	<br>
-	<h3>Displaying system information</h3>
+	<b>Changing your graphics mode</b>
 	<ul>
-	<li><code>miz info</code> - Displays system information via a modified neofetch.</li>
-	<li><code>miz info help</code> - Links you to the Discord Server.</li>
-	<li><code>miz info source</code> - Links you to the GitHub.</li>
-	<li><code>miz info creator</code> - Links you to the Duat website.</li>
-	<li><code>miz info uilist</code> - Prints the full list of preset DE/WM installs.</li>
+		<li><code>miz gfx mode &lt;mode&gt;</code> - Changes your graphics mode to the given mode.</li>
 	</ul>
-        <br>
+	<p>Graphics card modes:</p>
+	<ul>
+		<li><code>i</code> - Integrated. Uses your integrated GPU for graphics processing.</li>
+		<li><code>d</code> - Dedicated. Uses your dedicated GPU for graphics processing.</li>
+		<li><code>h</code> - Hybrid. Uses both of your GPUs for graphics processing.</li>
+		<li><code>c</code> - Compute. Quote unquote "enables Nvidia without Xorg".</li>
+		<li><code>v</code> - VFIO. Binds your dedicated GPU to VFIO for VM passthrough.</li>
+	</ul>
+	<br>
+	<h3>Software management</h3>
+	<p>mizOS's software management utilities allow for a simpler, more congruent software management experience.</p>
+	<br>
+	<p>mizOS's software management tool works in channels, being:</p>
+	<ul>
+		<li><code>-m</code> - The mizOS channel. Used for managing mizOS packages.</li>
+		<li><code>-p</code> - The Pacman channel. Used for managing Pacman packages.</li>
+		<li><code>-a</code> - The AUR channel. Used for managing AUR packages.</li>
+		<li><code>-d</code> - The Desktop channel. Used for easy desktop environment installation.</li>
+	</ul>
+	<br>
+	<b>Software installation</b>
+	<li><code>miz fetch -m &lt;package&gt;</code> - Install that mizOS package. See "The mizOS Package Manager" below for more information.</li>
+	<li><code>miz fetch -p &lt;package&gt;</code> - Install that Pacman package.</li>
+	<li><code>miz fetch -a &lt;package&gt;</code> - Install that AUR package.</li>
+	<li><code>miz fetch -d &lt;desktop&gt;</code> - Install that desktop environment in the mizOS DE/WM database. For a list of all installable desktops, see <code>miz info uilist</code></li>
+	<br>
+	<b>Software removal</b>
+	<li><code>miz remove -m &lt;package&gt;</code> - Remove that mizOS package.</li>
+	<li><code>miz remove -p &lt;package&gt;</code> - Remove that Pacman package.</li>
+	<li><code>miz remove -a &lt;package&gt;</code> - Remove that AUR package.</li>
+	<li><code>miz remove -d &lt;desktop&gt;</code> - Remove that desktop environment.</li>
+	<br>
+	<b>Other</b>
+	<ul>
+		<li><code>miz cc</code> - Clears the package cache for Pacman and AUR packages. Also clears the SystemD journal logs, if SystemD is present.</li>
+	</ul>
+	<br>
+	<h3>System updates</h3>
+	<ul>
+		<li><code>miz update</code> - Updates mizOS, Pacman packages, and AUR packages.</li>
+		<li><code>miz update dev</code> - Same as <code>miz update</code>, except it updates to the lastest developer edition. This is used solely for development purposes, and may break your system.</li>
+	</ul>
 	<br>
 	<h2>The mizOS Package Manager</h2>
 	<p>mizOS is equipped with a powerful package manager that makes it easy for users to install and manage software packages. Unlike traditional package managers that rely on centralized repositories, mizOS's package manager is GitHub-centric. This means that each package is stored on its own individual GitHub repository, and anyone can create a GitHub repository that follows the mizOS packaging format and publish a package that is installable by anyone else within seconds.</p>
@@ -156,19 +151,21 @@
 	<p>If you would like to create a package, or add a package to the Duat, see <a href="/packages/contributing.html">this guide</a>.</p>
 	<br>
 	<br>
-	<h2>Using i3-gaps</h2>
-	<p>When the mizOS system interface, i3-gaps, first runs, it will ask to either set the Windows Key or Alt key as the MOD key, remember the key you chose.</p>
+	<h2>Using i3</h2>
+	<p>By default, mizOS comes with i3 - an extremely fast/lightweight user interface. mizOS is tightly integrated into i3, giving it abilities never before seen in any other Linux distribution.</p>
 	<br>
-	<p>If you don't know how to navigate i3-gaps, follow the tutorial <a href="https://i3wm.org/docs/refcard.html">here</a>.</p>
+	<p>Rather than being a "point and click" user interface, i3 is keyboard-oriented, meaning you mainly navigate it by using a set of keyboard shortcuts. This may seem a bit hard to learn at first, but it's not that difficult once you start using it.</p>>
 	<br>
-	<p>mizOS makes some changes to i3-gaps via a custom config file. These changes are listed below:</p>
+	<p>In mizOS, i3 uses "Mod4" as the default "Mod" key. Mod4 refers to the <a href="https://cdsmythe.com/wp-content/uploads/2019/07/Insert-Windows-Key-Symbol.jpg">Windows key</a>.</p>
+	<br>
+	<p>If you don't know how to navigate i3, follow the tutorial <a href="https://i3wm.org/docs/refcard.html">here</a>. I will provide an in-depth tutorial when I have time.</p>
+	<br>
+	<p>mizOS makes some changes to i3 via a custom config file. These changes are listed below:</p>
 	<ul>
-	  <li>Catppuccin color scheme</li>
-	  <li>Wallpaper</li>
-	  <li>MOD+shift+a now lets you take a screenshot, the image will be saved to your clipboard</li>
-	  <li>MOD+shift+p enables second monitor support, this only works on certain setups</li>
-	  <li>MOD+shift+m enables Picom for some fancy blur effects</li>
-	  <li>MOD+shift+n disables Picom</li>
+	  <li>i3 has been fully themed in the mizOS style by default.</li>
+	  <li>MOD+shift+a now lets you take a screenshot, the image will be saved to your clipboard.</li>
+	  <li>MOD+shift+m enables Picom for some fancy visual effects.</li>
+	  <li>MOD+shift+n disables Picom.</li>
 	</ul>
       </article>
       <aside>
