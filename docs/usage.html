@@ -63,6 +63,26 @@
 	</ul>
 	<br>
 	<br>
+	<h3>Managing configuration backups/restores</h3>
+	<p>mizOS provides a way to easily backup and restore your system configurations.</p>
+	<p>Warning: Backing up a configuration will remove previous backups of that configuration. Similarly, restoring a backed up configuration will remove your currently active configuration. mizOS backups are located at /var/mizOS/backup/$USER</p>
+	<ul>
+		<li><code>miz backup &lt;program_name&gt;</code> - Back up the current configurations for program_name</li>
+		<li><code>miz restore &lt;program_name&gt;</code> - Restore previously backed up configurations for program_namw</li>
+	</ul>
+	<br>
+	<p>Valid program names:</p>
+	<ul>
+		<li><code>alacritty</code></li>
+		<li><code>fish</code></li>
+		<li><code>gtk</code></li>
+		<li><code>i3</code></li>
+		<li><code>picom</code></li>
+		<li><code>wallpaper</code></li>
+	</ul>
+	<p>If no program name is given, mizOS will backup/restore configurations for all programs.</p>
+	<br>
+	<br>
 	<h3>System service management</h3>
 	<p>mizOS's powerful service management aims to standardize commands across init systems. With mizOS, service management commands are more or less the same across SystemD, Runit, and OpenRC.</p>
 	<ul>
@@ -133,6 +153,7 @@
 		<li><code>miz update</code> - Updates mizOS, Pacman packages, and AUR packages.</li>
 		<li><code>miz update dev</code> - Same as <code>miz update</code>, except it updates to the lastest developer edition. This is used solely for development purposes, and may break your system.</li>
 	</ul>
+	<p>Warning: While updating, mizOS will replace your configurations in /var/mizOS/config/$USER/ with an updated set. Your old confifurations will be located in /var/mizOS/backup/$USER/. If you want to restore your previous settings, please see "Managing configuration backups/restores".</p>
 	<br>
 	<br>
 	<br>
