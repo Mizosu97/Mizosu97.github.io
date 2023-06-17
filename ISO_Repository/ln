@@ -1,0 +1,4 @@
+rm x86_64/mizos_repo.db
+rm x86_64/mizos_repo.files
+ln -s mizos_repo.db.tar.gz mizos_repo.db
+ln -s mizos_repo.files.tar.gz mizos_repo.files
