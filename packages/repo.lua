@@ -1,3 +1,5 @@
+-- mizOS package repository
+
 packages = {
 	["official"] = {
 		["the-duat/mizos-asusctl"] = {"the-duat/mizos-asusctl", true},
